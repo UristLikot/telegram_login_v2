@@ -1,5 +1,5 @@
 from telegram.ext import CommandHandler,Updater
-updater = Updater(token='BOT_TOKEN')
+updater = Updater(token='512859622:AAHulqPeIeO0CeXwvCAAp9TBzbhqFExBw3c')
 dispatcher = updater.dispatcher
 
 def startCommand(bot,update):
