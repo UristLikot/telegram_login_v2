@@ -1,4 +1,4 @@
-from telegram.ext import CommandHandler,MessageHandler,Updater
+from telegram.ext import CommandHandler,Updater
 updater = Updater(token='BOT_TOKEN')
 dispatcher = updater.dispatcher
 
