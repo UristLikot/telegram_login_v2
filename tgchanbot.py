@@ -1,14 +1,34 @@
-from telegram.ext import CommandHandler,Updater
-updater = Updater(token='512859622:AAHulqPeIeO0CeXwvCAAp9TBzbhqFExBw3c')
-dispatcher = updater.dispatcher
+from telegram.ext import CommandHandler, Updater
+from telegram import Bot, Chat,TelegramError
 
-def startCommand(bot,update):
-    bot.send_message(chat_id=update.message.chat_id,text='Hello')
-    usr_id=(update.message.chat.id)
-    bot.send_message(chat_id=update.message.chat_id, text=usr_id)
+updater = Updater(token='459744558:AAEm1FxxzQ3KblbACDJjAWLQkDRnLK5TuFc')
+bot = updater.dispatcher.bot
+
+
+def startCommand(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text='Hello')
+    cht_id = update.message.chat_id
+    #add user id to DB
+    return cht_id #user id
+def check_group(bot,channe_name):
+    try:
+        check=Bot.getChat(bot,chat_id=channe_name)
+        return check
+    except (TelegramError):
+        pass
+def check_group_admin(bot, channel_name):
+    try:
+        adm = Bot.getChatAdministrators(bot, chat_id=channel_name)
+        for key in adm:
+            s = key.user.id
+            str=[]
+            str.append(s)
+            return str
+    except (TelegramError):
+        pass
 
 
 def start_bot():
     start_command_handler = CommandHandler('start', startCommand)
-    dispatcher.add_handler(start_command_handler)
+    updater.dispatcher.add_handler(start_command_handler)
     updater.start_polling(clean=True)
