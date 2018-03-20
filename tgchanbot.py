@@ -1,7 +1,7 @@
 from telegram.ext import CommandHandler, Updater
 from telegram import Bot, Chat,TelegramError
 
-updater = Updater(token='459744558:AAEm1FxxzQ3KblbACDJjAWLQkDRnLK5TuFc')
+updater = Updater(token='BOT_API')
 bot = updater.dispatcher.bot
 
 
